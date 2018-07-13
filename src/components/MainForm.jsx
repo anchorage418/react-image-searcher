@@ -4,7 +4,7 @@ export default class MainForm extends Component {
   render() {
     return(
       <div>
-        {/* <Form> */}
+        <form>
           <label for="subject">Subject: </label>
           <input type="text" id="subject" name="subject"/>
           <label for="columns">Columns: </label>
@@ -14,7 +14,7 @@ export default class MainForm extends Component {
             <option value="3">3</option>
             <option value="4">4</option>
           </select>
-        {/* </Form> */}
+        </form>
       </div>
     );
   }
