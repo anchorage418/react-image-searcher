@@ -9,7 +9,7 @@ import { Route, Switch } from 'react-router';
 import registerServiceWorker from './registerServiceWorker';
 
 import rootReducer from './reducers/index';
-// import mySaga from './sagas';
+import rootSaga from './sagas/rootSaga';
 
 import Layout from './containers/layoutContainer';
 import NotFound from './containers/404';
@@ -29,7 +29,7 @@ const store = createStore(
   )
 );
 
-// sagaMiddleware.run(mySaga);
+sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
   <Provider store={store}>
