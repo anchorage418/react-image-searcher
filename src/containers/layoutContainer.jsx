@@ -1,16 +1,15 @@
 import React, {Component} from 'react';
 import MainForm from './mainFormContainer';
-import ResultImages from './resultImagesContainer';
 import ResultsLayoutForm from '../components/ResultsLayoutForm';
+import tabsContainer from './tabsContainer';
 
 export default class Layout extends Component {
   render() {
     return(
       <div>
+        <tabsContainer />
         <MainForm />
-        <ResultsLayoutForm>
-          <ResultImages />
-        </ ResultsLayoutForm>
+        <ResultsLayoutForm />
       </div>
     );
   }

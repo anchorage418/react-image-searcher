@@ -3,10 +3,11 @@ import {connect} from 'react-redux';
 
 class ResultImages extends Component {
   render() {
-    const {images} = this.props;
+    const {images, columnCount} = this.props;
     const iamgesArray = Object.keys(images).map((key)=>{
       return images[key];
     });
+
     if(Object.keys(images).length === 0) {
       return(
         <div>Ready to search</div>
@@ -14,7 +15,7 @@ class ResultImages extends Component {
     } else {
       return(
         <div className="column-container">
-          <div className="column-count-two">
+          <div className={`column-count-${columnCount}`}>
             {
               iamgesArray.map( (image, index) => {
                 return(
@@ -28,6 +29,7 @@ class ResultImages extends Component {
         </div>
       );
     }
+
   }
 }
 

@@ -11,14 +11,32 @@ body {
 .column-container {
   width: 80%;
   margin: 0 auto;
+  /* height: 86vh; */
+  /* overflow: hidden; */
 }
 
-.column-count-one {
+.column-count-1,
+.column-count-2,
+.column-count-3,
+.column-count-4 {
+  column-gap: 5px;
+}
+
+
+.column-count-1 {
   column-count: 1;
 }
 
-.column-count-two {
+.column-count-2 {
   column-count: 2;
+}
+
+.column-count-3 {
+  column-count: 3;
+}
+
+.column-count-4 {
+  column-count: 4;
 }
 
 /* .col-1 {
@@ -33,3 +51,10 @@ body {
   height: auto;
 }
 
+.showe-more-btn {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 15px;
+  font-size: 20px;
+  background-color: #a0f3a0;
+}

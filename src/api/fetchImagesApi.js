@@ -8,7 +8,7 @@ export default function fetchImagesApi(subject) {
       // 'Secret': secret_key
     }
   };
-  return fetch(`https://api.unsplash.com/search/photos?orientation=squarish&query=${subject}`, init)
+  return fetch(`https://api.unsplash.com/search/photos?per_page=24&orientation=squarish&query=${subject}`, init)
   .then((response) => {
     return response.json();
   })
