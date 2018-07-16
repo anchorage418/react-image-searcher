@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import ResultImages from './ResultImages';
-import ShowMoreBtn from './ShowMoreBtn';
 
 class ResultsLayoutForm extends Component {
   constructor(props) {
@@ -28,7 +27,6 @@ class ResultsLayoutForm extends Component {
           <label htmlFor="four">Four columns</label>
         </form>
         <ResultImages columnCount={count}/>
-        <ShowMoreBtn />
       </div>
     )
   }

@@ -13,7 +13,7 @@ import rootSaga from './sagas/rootSaga';
 
 import Layout from './containers/layoutContainer';
 import NotFound from './containers/404';
-import tabsContainer from './containers/tabsContainer';
+import SavedImages from './components/SavedImages';
 
 import './index.css';
 
@@ -38,7 +38,7 @@ ReactDOM.render(
      <div>
         <Switch>
           <Route exact path="/" component={Layout} />
-          <Route exact path="/save" component={tabsContainer} />
+          <Route exact path="/save" component={SavedImages} />
           <Route component={NotFound} />
         </Switch>
       </div>

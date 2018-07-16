@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import ShowMoreBtn from './ShowMoreBtn';
+import Image from './Image';
 
 class ResultImages extends Component {
   render() {
@@ -19,13 +21,12 @@ class ResultImages extends Component {
             {
               iamgesArray.map( (image, index) => {
                 return(
-                  <div key={index} className="img-container">
-                    <img src={image.urls.regular} alt={image.description} className="img-container_image"/>
-                  </div>
+                  <Image imageObj={image} key={index} />
                 )
               } )
             }
           </div>
+          <ShowMoreBtn />
         </div>
       );
     }
