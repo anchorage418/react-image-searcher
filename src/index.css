@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+.column-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.column-count-one {
+  column-count: 1;
+}
+
+.column-count-two {
+  column-count: 2;
+}
+
+/* .col-1 {
+  width: 70%;
+  margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px; 
+} */
+
+.img-container_image {
+  width: 100%;
+  height: auto;
+}
+

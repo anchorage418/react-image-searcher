@@ -14,7 +14,7 @@ import rootSaga from './sagas/rootSaga';
 import Layout from './containers/layoutContainer';
 import NotFound from './containers/404';
 
-// import './App.css';
+import './index.css';
 
 const history = createBrowserHistory();
 const sagaMiddleware = createSagaMiddleware();

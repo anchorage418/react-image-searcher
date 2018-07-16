@@ -8,11 +8,12 @@ export default function fetchImagesApi(subject) {
       // 'Secret': secret_key
     }
   };
-  return fetch(`https://api.unsplash.com/search/photos?query=${subject}`, init)
+  return fetch(`https://api.unsplash.com/search/photos?orientation=squarish&query=${subject}`, init)
   .then((response) => {
     return response.json();
   })
   .then((response) => {
+    console.log('response', response)
     return response.results;
   })
   .catch((error) => {

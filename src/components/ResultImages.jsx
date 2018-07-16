@@ -7,21 +7,24 @@ class ResultImages extends Component {
     const iamgesArray = Object.keys(images).map((key)=>{
       return images[key];
     });
-    console.log(iamgesArray); 
     if(Object.keys(images).length === 0) {
       return(
         <div>Ready to search</div>
       )
     } else {
       return(
-        <div>
-          {
-            iamgesArray.map( (image, index) => {
-              return(
-                <img src={image.urls.regular} key={index} alt=""/>
-              )
-            } )
-          }
+        <div className="column-container">
+          <div className="column-count-two">
+            {
+              iamgesArray.map( (image, index) => {
+                return(
+                  <div key={index} className="img-container">
+                    <img src={image.urls.regular} alt={image.description} className="img-container_image"/>
+                  </div>
+                )
+              } )
+            }
+          </div>
         </div>
       );
     }
@@ -29,7 +32,7 @@ class ResultImages extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log('state',state);
+  console.log('state.resultImages', state.resultImages);
   return {
     images: state.resultImages
   }

@@ -7,8 +7,8 @@ const initalState = {};
 export default (state = initalState, {type, payload}) => {
   switch (type) {
     case FETCH_IMAGES_SUCCESS:
-      console.log("reducer success", Object.assign({}, state, payload));
-      return Object.assign({}, state, payload);
+      console.log("reducer success", Object.assign({}, payload));
+      return Object.assign({}, payload);
     default:
       return state;
   }
