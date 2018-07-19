@@ -21,7 +21,7 @@ class ResultImages extends Component {
             {
               iamgesArray.map( (image, index) => {
                 return(
-                  <Image imageObj={image} key={index} />
+                  <Image imageObj={image} key={index} id={image.id}/>
                 )
               } )
             }
@@ -35,7 +35,7 @@ class ResultImages extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log('state.resultImages', state.resultImages);
+  // console.log('state.resultImages', state.resultImages);
   return {
     images: state.resultImages
   }

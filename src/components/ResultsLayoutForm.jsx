@@ -8,7 +8,6 @@ class ResultsLayoutForm extends Component {
   }
 
   handleChange = (event) => {
-    console.log(event.target.value);
     this.setState({count: event.target.value});
   }
 

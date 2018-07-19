@@ -1,10 +1,12 @@
 import { takeEvery, put, call } from 'redux-saga/effects'
 import fetchImagesApi from '../api/fetchImagesApi';
 import {
-  fetchImagesSuccess
+  fetchImagesSuccess,
+  saveImageSuccess
 } from '../actions/index';
 import {
-  FETCH_IMAGES_START
+  FETCH_IMAGES_START,
+  SAVE_IMAGES_START
 } from '../actions/actionTypes';
 
 function* fetchImages({payload}) {
@@ -16,6 +18,18 @@ function* fetchImages({payload}) {
   }
 }
 
+function* saveImages({payload}) {
+  try {
+    yield put(saveImageSuccess(payload))
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 export function* fetchImagesWatch() {
   yield takeEvery(FETCH_IMAGES_START, fetchImages)
+}
+
+export function* saveImageWatch() {
+  yield takeEvery(SAVE_IMAGES_START, saveImages)
 }

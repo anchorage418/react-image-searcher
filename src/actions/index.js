@@ -1,7 +1,10 @@
 import {
   FETCH_IMAGES_START,
   FETCH_IMAGES_SUCCESS,
-  FETCH_IMAGES_FAILURE
+  FETCH_IMAGES_FAILURE,
+  SAVE_IMAGES_START,
+  SAVE_IMAGES_SUCCESS,
+  SAVE_IMAGES_FAILURE
 } from './actionTypes';
 
 export const fetchImagesStart = (data) => {
@@ -23,4 +26,18 @@ export const fetchImagesFailure = (error) => {
     type: FETCH_IMAGES_FAILURE,
     payload: error
   });
+}
+
+export const saveImageStart = (data) => {
+  return({
+    type: SAVE_IMAGES_START,
+    payload: data
+  })
+}
+
+export const saveImageSuccess = (data) => {
+  return({
+    type: SAVE_IMAGES_SUCCESS,
+    payload: data
+  })
 }

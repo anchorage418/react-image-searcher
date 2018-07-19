@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import TabsContainer from '../containers/tabsContainer';
 
-export default class SavedImages extends Component {
+class SavedImages extends Component {
   render() {
     return(
       <div>
@@ -11,3 +12,12 @@ export default class SavedImages extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  console.log('state.savedImages state', state);
+  return {
+    images: state.savedImages
+  }
+}
+
+export default connect(mapStateToProps, null)(SavedImages)
