@@ -7,8 +7,8 @@ const initalState = {};
 export default (state= initalState, {type, payload}) => {
   switch (type) {
     case SAVE_IMAGES_SUCCESS:
-      console.log('!!!!', state);
-      return {...state, payload};
+      console.log('!!!!', Object.assign({}, state, payload));
+      return Object.assign({}, state, payload);
     default:
       return state;
   }

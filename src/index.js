@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import { connectRouter, routerMiddleware, ConnectedRouter } from 'connected-react-router';
 import createSagaMiddleware from 'redux-saga';
 import { Route, Switch } from 'react-router';
+import logger from 'redux-logger';
 import registerServiceWorker from './registerServiceWorker';
 
 import rootReducer from './reducers/index';
@@ -20,10 +21,12 @@ import './index.css';
 const history = createBrowserHistory();
 const sagaMiddleware = createSagaMiddleware();
 
+
 const store = createStore(
   connectRouter(history)(rootReducer),
   compose(
     applyMiddleware(
+      logger,
       routerMiddleware(history),
       sagaMiddleware
     )

@@ -7,7 +7,9 @@ class SavedImages extends Component {
     return(
       <div>
         <TabsContainer />
-        Saved images
+        <div>
+          TEst
+        </div>
       </div>
     );
   }
