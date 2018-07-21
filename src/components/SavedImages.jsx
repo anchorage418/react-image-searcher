@@ -1,14 +1,43 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import TabsContainer from '../containers/tabsContainer';
+import {
+  deleteImageStart
+} from '../actions/index';
 
 class SavedImages extends Component {
+
+  handleDelete = (id) => {
+    this.props.deleteImageStart(id);
+  }
+
   render() {
-    return(
+    const {images} = this.props;
+    const countVal = images.saved.count;
+    const localStorage = window.localStorage;
+    try {
+      localStorage.setItem('savedImages', JSON.stringify(images.saved));
+    } catch (error) {
+      console.error(error);
+    }
+    const savedImg = localStorage.getItem('savedImages') ? JSON.parse(localStorage.getItem('savedImages')) : [];
+    
+    return (
       <div>
-        <TabsContainer />
+        <TabsContainer counter={countVal}/>
         <div>
-          TEst
+          <div className="saved-img-general-container">
+          {
+            savedImg.map((value, index) => {
+              return(
+                <div key={index} className="saved-img-container">
+                  <img src={value.urls.regular} alt={value.description} className="saved-img"/>
+                  <button className="delete-btn" onClick={() => this.handleDelete(value.id)}>x</button>
+                </div>
+              )
+            })
+          }
+          </div>
         </div>
       </div>
     );
@@ -16,10 +45,14 @@ class SavedImages extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log('state.savedImages state', state);
+  // console.log('state.savedImages state', state);
   return {
     images: state.savedImages
   }
 }
 
-export default connect(mapStateToProps, null)(SavedImages)
+const mapDispatchToProps = {
+  deleteImageStart
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SavedImages)

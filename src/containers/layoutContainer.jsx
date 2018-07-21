@@ -1,16 +1,27 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
 import MainForm from './mainFormContainer';
 import ResultsLayoutForm from '../components/ResultsLayoutForm';
-import Tabs from './tabsContainer';
+import TabsContainer from './tabsContainer';
 
-export default class Layout extends Component {
+class Layout extends Component {
   render() {
+    const {countVal} = this.props;
+
     return(
       <div>
-        <Tabs />
+        <TabsContainer counter={countVal}/>
         <MainForm />
         <ResultsLayoutForm />
       </div>
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    countVal: state.savedImages.count
+  }
+}
+
+export default connect(mapStateToProps, null)(Layout)
