@@ -2,6 +2,9 @@ import {
   FETCH_IMAGES_START,
   FETCH_IMAGES_SUCCESS,
   FETCH_IMAGES_FAILURE,
+  CHANGE_LAYOUT_START,
+  CHANGE_LAYOUT_SUCCESS,
+  CHANGE_LAYOUT_FAILURE,
   SAVE_IMAGES_START,
   SAVE_IMAGES_SUCCESS,
   SAVE_IMAGES_FAILURE,
@@ -24,10 +27,17 @@ export const fetchImagesSuccess = (data) => {
   });
 }
 
-export const fetchImagesFailure = (error) => {
+export const changeLayoutStart = (data) => {
   return({
-    type: FETCH_IMAGES_FAILURE,
-    payload: error
+    type: CHANGE_LAYOUT_START,
+    payload: data
+  });
+}
+
+export const changeLayoutSuccess = (data) => {
+  return({
+    type: CHANGE_LAYOUT_SUCCESS,
+    payload: data
   });
 }
 
