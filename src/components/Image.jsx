@@ -5,15 +5,18 @@ import {saveImageStart} from '../actions/index';
 class Image extends Component {
 
   handleClick = (image) => {
-    // console.log('CLICK', image);
     this.props.saveImageStart(image);
   }
 
   render() {
-    const {imageObj, id, index} = this.props;
+    const {imageObj} = this.props;
+    const styles = {
+      backgroundImage: `url(${imageObj.urls.regular})` 
+    }
+
     return(
       <div className="img-container">
-        <img src={imageObj.urls.regular} alt={imageObj.description} className="img-container_image"/>
+        <div style={styles} className="img-container_image"/>
         <div className="img-container_image-overlay">
           <button className="img-container_image-overlay-btn" onClick={ () => this.handleClick(imageObj) }>save</button>
         </div>

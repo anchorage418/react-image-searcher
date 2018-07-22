@@ -21,7 +21,7 @@ class ResultImages extends Component {
             {
               iamgesArray.map( (image, index) => {
                 return(
-                  <Image imageObj={image} key={index} id={image.id}/>
+                  <Image imageObj={image} key={index}/>
                 )
               } )
             }
