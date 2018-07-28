@@ -54,8 +54,8 @@ body {
 }
 
 .img-container {
-  position: relative;
-  display: inline;
+  /* position: relative;
+  display: inline; */
 }
 
 .img-container_image {
@@ -78,7 +78,7 @@ body {
 }
 
 .img-container_image-overlay {
-  opacity: 0;
+  /* opacity: 0; */
   position: absolute;
   top: 0;
   bottom: 0;
@@ -88,7 +88,7 @@ body {
 }
 
 .img-container_image-overlay-btn {
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   align-items: center;
   padding: 20px 10px;

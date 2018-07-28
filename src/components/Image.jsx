@@ -16,9 +16,11 @@ class Image extends Component {
 
     return(
       <div className="img-container">
-        <div style={styles} className="img-container_image"/>
-        <div className="img-container_image-overlay">
-          <button className="img-container_image-overlay-btn" onClick={ () => this.handleClick(imageObj) }>save</button>
+        <div style={{position: 'relative', height: '100%', width: '100%'}}>
+          <div style={styles} className="img-container_image"/>
+          <div className="img-container_image-overlay">
+            {/* <div className="img-container_image-overlay-btn" onClick={ () => this.handleClick(imageObj) }>save</div> */}
+          </div>
         </div>
       </div>
     )
