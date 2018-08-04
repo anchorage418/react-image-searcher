@@ -1,4 +1,5 @@
-export default function fetchImagesApi(subject) {
+export default function fetchImagesApi({value: subject, page}) {
+  // debugger
   const access_token = '009dfcb184267a371f8e417b6e5aca1f570ec526ec1cbdb276014c05a19d85ba';
   // const secret_key = 'ce98294c699d4ffbc8ba0329049fed786caccf11e2c27a10fadeec1c308ecb78';
   const init = {
@@ -8,7 +9,7 @@ export default function fetchImagesApi(subject) {
       // 'Secret': secret_key
     }
   };
-  return fetch(`https://api.unsplash.com/search/photos?per_page=24&orientation=squarish&query=${subject}`, init)
+  return fetch(`https://api.unsplash.com/search/photos?page=${page}&per_page=24&orientation=squarish&query=${subject}`, init)
   .then((response) => {
     return response.json();
   })

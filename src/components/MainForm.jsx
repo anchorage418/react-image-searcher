@@ -6,7 +6,7 @@ import {fetchImagesStart} from '../actions/index';
 class MainForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {value: ''};
+    this.state = {value: '', page: 1};
   }
 
   handleChange = (event) => {

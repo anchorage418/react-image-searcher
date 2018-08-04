@@ -1,13 +1,21 @@
 import {
-  FETCH_IMAGES_SUCCESS
+  FETCH_IMAGES_SUCCESS,
+  SHOW_MORE_IMAGES_SUCCESS
 } from '../actions/actionTypes';
 
-const initalState = {};
+const initalState = {
+  result: [],
+  query: {}
+};
 
 export default (state = initalState, {type, payload}) => {
+  // debugger
   switch (type) {
     case FETCH_IMAGES_SUCCESS:
-      return Object.assign({}, payload); 
+      return Object.assign({}, {result: payload.data, query: payload.query}); 
+    case SHOW_MORE_IMAGES_SUCCESS:
+    // console.log('PAYLOAD', Object.assign({}, {result: [...state.result, ...payload.data], query: {value: payload.query.value, page: payload.query.page}}));
+      return Object.assign({}, {result: [...state.result, ...payload.data], query: {value: payload.query.value, page: payload.query.page}}); 
     default:
       return state;
   }
