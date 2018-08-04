@@ -4,7 +4,8 @@ import {
   fetchImagesWatch,
   changeLayoutWatch,
   saveImageWatch,
-  deleteImageWatch
+  deleteImageWatch,
+  showMoreImagesWatch
  } from './sagas';
 
 export default function* rootSaga() {
@@ -13,5 +14,6 @@ export default function* rootSaga() {
       fork(changeLayoutWatch),
       fork(saveImageWatch),
       fork(deleteImageWatch),
+      fork(showMoreImagesWatch),
   ]);
 }

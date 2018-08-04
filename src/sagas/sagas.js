@@ -1,22 +1,24 @@
-import { takeEvery, put, call } from 'redux-saga/effects'
+import { takeEvery, put, call } from 'redux-saga/effects';
 import fetchImagesApi from '../api/fetchImagesApi';
 import {
   fetchImagesSuccess,
   changeLayoutSuccess,
   saveImageSuccess,
-  deleteImageSuccess
+  deleteImageSuccess,
+  showMoreImagesSuccess
 } from '../actions/index';
 import {
   FETCH_IMAGES_START,
   CHANGE_LAYOUT_START,
   SAVE_IMAGES_START,
-  DELETE_IMAGE_START
+  DELETE_IMAGE_START,
+  SHOW_MORE_IMAGES_START,
 } from '../actions/actionTypes';
 
 function* fetchImages({payload}) {
   try {
-     const data = yield call(fetchImagesApi, payload.value);
-     yield put(fetchImagesSuccess(data))
+     const data = yield call(fetchImagesApi, payload);
+     yield put(fetchImagesSuccess(data, payload))
   } catch (error) {
      console.error(error);
   }
@@ -46,6 +48,15 @@ function* deleteImage({payload}) {
   }
 }
 
+function* showMoreImages({payload}) {
+  try {
+    const data = yield call(fetchImagesApi, payload);
+    yield put(showMoreImagesSuccess(data, payload));
+ } catch (error) {
+    console.error(error);
+ }
+}
+
 export function* fetchImagesWatch() {
   yield takeEvery(FETCH_IMAGES_START, fetchImages)
 }
@@ -60,4 +71,8 @@ export function* saveImageWatch() {
 
 export function* deleteImageWatch() {
   yield takeEvery(DELETE_IMAGE_START, deleteImage)
+}
+
+export function* showMoreImagesWatch() {
+  yield takeEvery(SHOW_MORE_IMAGES_START, showMoreImages)
 }

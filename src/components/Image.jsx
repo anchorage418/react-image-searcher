@@ -10,6 +10,7 @@ class Image extends Component {
 
   render() {
     const {imageObj} = this.props;
+    console.log('IMAGEOBJ', imageObj);
     const styles = {
       backgroundImage: `url(${imageObj.urls.regular})` 
     }
@@ -19,7 +20,7 @@ class Image extends Component {
         <div style={{position: 'relative', height: '100%', width: '100%'}}>
           <div style={styles} className="img-container_image"/>
           <div className="img-container_image-overlay">
-            {/* <div className="img-container_image-overlay-btn" onClick={ () => this.handleClick(imageObj) }>save</div> */}
+            <button className="img-container_image-overlay-btn" onClick={ () => this.handleClick(imageObj) }>save</button>
           </div>
         </div>
       </div>

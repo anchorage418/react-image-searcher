@@ -6,11 +6,11 @@ import Image from './Image';
 class ResultImages extends Component {
   render() {
     const {images, columnCount} = this.props;
-    const iamgesArray = Object.keys(images).map((key)=>{
-      return images[key];
-    });
+    // const iamgesArray = Object.keys(images).map((key)=>{
+    //   return images[key];
+    // });
 
-    if(Object.keys(images).length === 0) {
+    if(images && !images.length) {
       return(
         <div>Ready to search</div>
       )
@@ -19,7 +19,7 @@ class ResultImages extends Component {
         <div className="column-container">
           <div className={`column-count-${columnCount}`}>
             {
-              iamgesArray.map( (image, index) => {
+              images.map( (image, index) => {
                 return(
                   <Image imageObj={image} key={index}/>
                 )
@@ -37,7 +37,7 @@ class ResultImages extends Component {
 const mapStateToProps = (state) => {
   // console.log('state.resultImages', state.resultImages);
   return {
-    images: state.resultImages
+    images: state.resultImages.result
   }
 }
 
