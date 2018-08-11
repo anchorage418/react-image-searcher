@@ -33,12 +33,13 @@ class ResultImages extends Component {
 
   }
 }
+// todo: remove connect and else
+// const mapStateToProps = (state) => {
+//   // console.log('state.resultImages', state.resultImages);
+//   return {
+//     images: state.resultImages
+//   }
+// }
 
-const mapStateToProps = (state) => {
-  // console.log('state.resultImages', state.resultImages);
-  return {
-    images: state.resultImages.result
-  }
-}
-
-export default connect(mapStateToProps, null)(ResultImages)
+// export default connect(mapStateToProps, null)(ResultImages)
+export default ResultImages;

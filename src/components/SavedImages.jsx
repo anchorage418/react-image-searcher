@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import TabsContainer from '../containers/tabsContainer';
 import {
   deleteImageStart
 } from '../actions/index';
@@ -8,12 +7,13 @@ import {
 class SavedImages extends Component {
 
   handleDelete = (id) => {
-    this.props.deleteImageStart(id);
+    const { deleteImageStart } = this.props;
+    deleteImageStart(id);
   }
 
   render() {
     const {images} = this.props;
-    const countVal = images.saved.count;
+    // const countVal = images.saved.count;
     const localStorage = window.localStorage;
     try {
       localStorage.setItem('savedImages', JSON.stringify(images.saved));
@@ -24,7 +24,6 @@ class SavedImages extends Component {
     
     return (
       <div>
-        <TabsContainer counter={countVal}/>
         <div>
           <div className="saved-img-general-container">
           {
@@ -44,15 +43,15 @@ class SavedImages extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  // console.log('state.savedImages state', state);
-  return {
-    images: state.savedImages
-  }
-}
+// const mapStateToProps = (state) => {
+//   // console.log('state.savedImages state', state);
+//   return {
+//     images: state.savedImages
+//   }
+// }
 
-const mapDispatchToProps = {
-  deleteImageStart
-}
+// const mapDispatchToProps = {
+//   deleteImageStart
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SavedImages)
+export default SavedImages;

@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 
 import {fetchImagesStart} from '../actions/index';
 
-class MainForm extends Component {
+class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {value: '', page: 1};
@@ -35,4 +35,4 @@ const mapDispatchToProps = {
   fetchImagesStart
 }
 
-export default connect(null, mapDispatchToProps)(MainForm);
+export default connect(null, mapDispatchToProps)(Search);

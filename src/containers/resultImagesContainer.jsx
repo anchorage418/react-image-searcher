@@ -1,12 +1,34 @@
 import React, {Component} from 'react';
-import ResultImagesComponent from '../components/ResultImages';
+import {connect} from 'react-redux';
 
-export default class ResultImages extends Component {
+import ResultImages from '../components/ResultImages';
+
+class ResultImagesLayout extends Component {
   render() {
+    const {
+      images,
+      columnCount,
+    } = this.props;
+    const iamgesArray = Object.keys(images).map((key)=>{
+      return images[key];
+    });
     return(
       <div>
-        <ResultImagesComponent />
+        <ResultImages 
+          images={iamgesArray}
+          columnCount={columnCount}
+        />
       </div>
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  const { resultImages } = state;
+
+  return {
+    images: resultImages,
+  }
+}
+
+export default connect(mapStateToProps, null)(ResultImagesLayout);
