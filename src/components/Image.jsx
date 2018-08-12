@@ -10,9 +10,9 @@ class Image extends Component {
 
   render() {
     const {imageObj} = this.props;
-    console.log('IMAGEOBJ', imageObj);
+    // console.log('IMAGEOBJ', imageObj);
     const styles = {
-      backgroundImage: `url(${imageObj.urls.regular})` 
+      backgroundImage: `url(${imageObj && imageObj.urls && imageObj.urls.regular})` 
     }
 
     return(
@@ -28,8 +28,9 @@ class Image extends Component {
   }
 }
 
-const mapDispatchToProps = {
-  saveImageStart
-}
+// const mapDispatchToProps = {
+//   saveImageStart
+// }
 
-export default connect(null, mapDispatchToProps)(Image)
+// export default connect(null, mapDispatchToProps)(Image)
+export default Image;
