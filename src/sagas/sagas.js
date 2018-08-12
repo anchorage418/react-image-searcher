@@ -5,7 +5,8 @@ import {
   changeLayoutSuccess,
   saveImageSuccess,
   deleteImageSuccess,
-  showMoreImagesSuccess
+  showMoreImagesSuccess,
+  fetchImagesFailure,
 } from '../actions/index';
 import {
   FETCH_IMAGES_START,
@@ -17,24 +18,25 @@ import {
 
 function* fetchImages({payload}) {
   try {
-     const data = yield call(fetchImagesApi, payload);
-     yield put(fetchImagesSuccess(data, payload))
+    const data = yield call(fetchImagesApi, payload);
+    yield put(fetchImagesSuccess(data, payload));
   } catch (error) {
-     console.error(error);
+    yield put(fetchImagesFailure(error));
+    console.error(error);
   }
 }
 
 function* changeLayout({payload}) {
   try {
-     yield put(changeLayoutSuccess(payload))
+    yield put(changeLayoutSuccess(payload));
   } catch (error) {
-     console.error(error);
+    console.error(error);
   }
 }
 
 function* saveImages({payload}) {
   try {
-    yield put(saveImageSuccess(payload))
+    yield put(saveImageSuccess(payload));
   } catch (error) {
     console.error(error);
   }
@@ -42,7 +44,7 @@ function* saveImages({payload}) {
 
 function* deleteImage({payload}) {
   try {
-    yield put(deleteImageSuccess(payload))
+    yield put(deleteImageSuccess(payload));
   } catch (error) {
     console.error(error);
   }
@@ -58,21 +60,21 @@ function* showMoreImages({payload}) {
 }
 
 export function* fetchImagesWatch() {
-  yield takeEvery(FETCH_IMAGES_START, fetchImages)
+  yield takeEvery(FETCH_IMAGES_START, fetchImages);
 }
 
 export function* changeLayoutWatch() {
-  yield takeEvery(CHANGE_LAYOUT_START, changeLayout)
+  yield takeEvery(CHANGE_LAYOUT_START, changeLayout);
 }
 
 export function* saveImageWatch() {
-  yield takeEvery(SAVE_IMAGES_START, saveImages)
+  yield takeEvery(SAVE_IMAGES_START, saveImages);
 }
 
 export function* deleteImageWatch() {
-  yield takeEvery(DELETE_IMAGE_START, deleteImage)
+  yield takeEvery(DELETE_IMAGE_START, deleteImage);
 }
 
 export function* showMoreImagesWatch() {
-  yield takeEvery(SHOW_MORE_IMAGES_START, showMoreImages)
+  yield takeEvery(SHOW_MORE_IMAGES_START, showMoreImages);
 }

@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
-
-import {fetchImagesStart} from '../actions/index';
 
 class Search extends Component {
   constructor(props) {
     super(props);
-    this.state = {value: '', page: 1};
+    this.state = {
+      value: '', 
+      page: 1
+    };
   }
 
   handleChange = (event) => {
@@ -14,8 +14,9 @@ class Search extends Component {
   }
 
   handleSubmit = (event) => {
+    const { fetchImagesStart } = this.props;
     event.preventDefault();
-    this.props.fetchImagesStart(this.state);
+    fetchImagesStart(this.state);
   }
 
   render() {
@@ -23,7 +24,12 @@ class Search extends Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="subject">Subject: </label>
-          <input type="text" id="subject" name="subject" onChange={this.handleChange}/>
+          <input 
+            type="text" 
+            id="subject" 
+            name="subject" 
+            onChange={this.handleChange}
+          />
           <button type="submit">Search</button>
         </form>
       </div>
@@ -31,8 +37,4 @@ class Search extends Component {
   }
 }
 
-const mapDispatchToProps = {
-  fetchImagesStart
-}
-
-export default connect(null, mapDispatchToProps)(Search);
+export default Search;

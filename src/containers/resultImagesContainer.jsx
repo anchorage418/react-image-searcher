@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 
 import {
   saveImageStart,
@@ -16,11 +17,7 @@ class ResultImagesLayout extends Component {
       saveImageStart,
       showMoreImagesStart,
     } = this.props;
-    // const imagesArray = Object.keys(images).map((key)=>{
-    //   return images[key];
-    // });
-    console.log('images', images);
-    // console.log('imagesArray', imagesArray);
+
     return(
       <div>
         <ResultImages 
@@ -35,10 +32,18 @@ class ResultImagesLayout extends Component {
   }
 }
 
+ResultImagesLayout.propTypes = {
+  images: PropTypes.array.isRequired,
+  query: PropTypes.object.isRequired,
+  columnCount: PropTypes.string.isRequired,
+  saveImageStart: PropTypes.func.isRequired,
+  showMoreImagesStart: PropTypes.func.isRequired,
+};
+
 const mapDispatchToProps = {
   saveImageStart,
   showMoreImagesStart,
-}
+};
 
 const mapStateToProps = (state) => {
   const { resultImages } = state;
@@ -49,7 +54,7 @@ const mapStateToProps = (state) => {
   return {
     images: result,
     query,
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(ResultImagesLayout);

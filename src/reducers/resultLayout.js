@@ -4,14 +4,17 @@ import {
 
 const initalState = {
   option: '',
-  count: ''
+  count: '',
 };
 
 export default (state = initalState, {type, payload}) => {
   switch (type) {
     case CHANGE_LAYOUT_SUCCESS:
-      return Object.assign({}, {option: payload, count: payload}); 
+      return Object.assign({}, {
+        option: payload, 
+        count: payload,
+      }); 
     default:
       return state;
   }
-}
+};

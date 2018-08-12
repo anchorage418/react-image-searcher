@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
+
 import {changeLayoutStart} from '../actions/index';
 
 import ResultsLayoutForm from '../components/ResultsLayoutForm';
@@ -23,13 +25,19 @@ class SearchResult extends Component {
           <ResultImagesLayout />
         </ResultsLayoutForm>
       </div>
-    )
+    );
   }
 }
 
+SearchResult.propTypes = {
+  option: PropTypes.string.isRequired,
+  count: PropTypes.string.isRequired,
+  changeLayoutStart: PropTypes.func.isRequired,
+};
+
 const mapDispatchToProps = {
   changeLayoutStart
-}
+};
 
 const mapStateToProps = (state) => {
   const { resultLayout } = state;
@@ -41,7 +49,7 @@ const mapStateToProps = (state) => {
   return {
     option,
     count,
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchResult);
