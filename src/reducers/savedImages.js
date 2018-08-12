@@ -11,6 +11,7 @@ const initalState = {
 export default (state= initalState, {type, payload}) => {
   switch (type) {
     case SAVE_IMAGES_SUCCESS: {
+      console.log('payload', payload);
       let result;
       let newArr;
       state.saved.find((value) => {

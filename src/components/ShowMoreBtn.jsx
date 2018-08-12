@@ -20,14 +20,15 @@ class ShowMoreBtn extends Component {
   }
 }
 
-const mapDispatchToProps = {
-  showMoreImagesStart
-}
+// const mapDispatchToProps = {
+//   showMoreImagesStart
+// }
 
-const mapStateToProps = (state) => {
-  return {
-    query: state.resultImages.query
-  }
-}
+// const mapStateToProps = (state) => {
+//   return {
+//     query: state.resultImages.query
+//   }
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ShowMoreBtn)
+// export default connect(mapStateToProps, mapDispatchToProps)(ShowMoreBtn)
+export default ShowMoreBtn;

@@ -12,11 +12,12 @@ import registerServiceWorker from './registerServiceWorker';
 import rootReducer from './reducers/index';
 import rootSaga from './sagas/rootSaga';
 
-import Layout from './containers/layoutContainer';
+import Home from './containers/homeContainer';
 import NotFound from './containers/404';
-import SavedImages from './components/SavedImages';
+import SavedImagesContainer from './containers/savedImagesContainer';
 
 import './index.css';
+import Layout from './containers/layout';
 
 const history = createBrowserHistory();
 const sagaMiddleware = createSagaMiddleware();
@@ -38,13 +39,13 @@ sagaMiddleware.run(rootSaga);
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
-     <div>
+     <Layout>
         <Switch>
-          <Route exact path="/" component={Layout} />
-          <Route exact path="/save" component={SavedImages} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/save" component={SavedImagesContainer} />
           <Route component={NotFound} />
         </Switch>
-      </div>
+     </Layout>
     </ConnectedRouter>
   </Provider>,
   document.getElementById('root')

@@ -10,7 +10,7 @@ class ResultsLayoutForm extends Component {
   }
 
   render() {
-    const {option, count} = this.props;
+    const {option, count, children} = this.props;
     
     return(
       <div>
@@ -24,26 +24,28 @@ class ResultsLayoutForm extends Component {
           <input type="radio" id="four" name="column" value="4" checked={option === '4'} onChange={this.handleChange}/>
           <label htmlFor="four">Four columns</label>
         </form>
-        <ResultImages columnCount={count}/>
+        {React.cloneElement(children, {columnCount: count})}
+        {/* <ResultImages columnCount={count}/> */}
       </div>
     )
   }
 }
-
+// todo: delete connect and else
 ResultsLayoutForm.defaultProps = {
   option: '',
   count: ''
 }
 
-const mapDispatchToProps = {
-  changeLayoutStart
-}
+// const mapDispatchToProps = {
+//   changeLayoutStart
+// }
 
-const mapStateToProps = (state) => {
-  return {
-    option: state.resultLayout.option,
-    count: state.resultLayout.count
-  }
-}
+// const mapStateToProps = (state) => {
+//   return {
+//     option: state.resultLayout.option,
+//     count: state.resultLayout.count
+//   }
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ResultsLayoutForm)
+// export default connect(mapStateToProps, mapDispatchToProps)(ResultsLayoutForm)
+export default ResultsLayoutForm;
