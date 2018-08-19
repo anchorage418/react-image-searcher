@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@mdi/js": "^2.6.95",
     "connected-react-router": "^4.3.0",
     "history": "^4.7.2",
     "prop-types": "^15.6.2",
@@ -22,6 +23,7 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "@mdi/react": "^0.8.1",
     "eslint": "^5.2.0",
     "eslint-config-standard": "^11.0.0",
     "eslint-plugin-import": "^2.13.0",

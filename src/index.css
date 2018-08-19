@@ -30,8 +30,7 @@ body {
 .layout-form {
   background-color: var(--main-bg-color);
 }
-.search-form__container,
-.layout-form {
+.search-form__container {
   padding: 0 15px;
 }
 .search-form > form {
@@ -62,9 +61,42 @@ body {
   box-shadow: inset 0 0 13px 0 #fff;
 }
 
-.layout-form__input::before {
-  
+.layout-form__inner-wrapper {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
 }
+.layout-form {
+  padding: 15px 15px;
+}
+.layout-form__title {
+  display: block;
+  width: 70%;
+  margin: 0 auto 10px;
+  font-size: 20px;
+  color: var(--color-white);
+}
+.layout-form__input-container {
+  position: relative;
+  display: flex;
+  /* flex: 1; */
+  justify-content: center;
+  align-items: center;
+  width: 90px;
+}
+.layout-form__input {
+  display: none;
+}
+.layout-form__label {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  cursor: pointer;
+} 
 
 .column-container,
 .saved-img-general-container {
