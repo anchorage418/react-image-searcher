@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -16,7 +16,7 @@ class SearchResult extends Component {
     } = this.props;
 
     return(
-      <div>
+      <Fragment>
         <ResultsLayoutForm
           option = {option}
           count = {count}
@@ -24,7 +24,7 @@ class SearchResult extends Component {
         >
           <ResultImagesLayout />
         </ResultsLayoutForm>
-      </div>
+      </Fragment>
     );
   }
 }

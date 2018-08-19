@@ -15,8 +15,8 @@ class ResultsLayoutForm extends Component {
     } = this.props;
     
     return(
-      <div>
-        <form>
+      <div className="result-layout result-layout__container">
+        <form className="layout-form">
           <input 
             type="radio" 
             id="one"
@@ -24,6 +24,7 @@ class ResultsLayoutForm extends Component {
             value="1" 
             checked={option === '1'} 
             onChange={this.handleChange}
+            className="layout-form__input"
           />
           <label htmlFor="one">One column</label>
           <input 

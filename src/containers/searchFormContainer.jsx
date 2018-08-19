@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -11,11 +11,11 @@ class SearchForm extends Component {
   const { fetchImagesStart } = this.props;
 
     return(
-      <div>
+      <Fragment>
         <Search 
           fetchImagesStart={fetchImagesStart}
         />
-      </div>
+      </Fragment>
     );
   }
 }

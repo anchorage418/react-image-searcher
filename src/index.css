@@ -4,8 +4,66 @@
   font-family: sans-serif;
 }
 
+:root {
+  --color-white: #fff;
+  --main-bg-color: rgb(203, 17, 125);
+}
+
 body {
   margin: 0;
+}
+
+.button {
+  display: block;
+  border: none;
+  background: #fff;
+  cursor: pointer;
+}
+
+.main-layout {
+  max-width: 960px;
+  margin: 0 auto;
+  /* padding: 0 15px; */
+}
+
+.search-form,
+.layout-form {
+  background-color: var(--main-bg-color);
+}
+.search-form__container,
+.layout-form {
+  padding: 0 15px;
+}
+.search-form > form {
+  display: flex;
+  flex-direction: column;
+}
+.search-form__input {
+  width: 70%;
+  margin: 20px auto;
+  font-size: 50px;
+  border: none;
+  border-bottom: 3px solid var(--color-white); 
+  background-color: transparent;
+  color: var(--color-white);
+}
+.search-form__btn {
+  width: 70%;
+  height: 50px;
+  margin: 0 auto;
+  border: 3px solid var(--color-white);
+  border-radius: 6px;
+  background-color: transparent;
+  box-shadow: inset 0 0 13px 3px #ffffffb3;
+  font-size: 28px;
+  color: var(--color-white);
+}
+.search-form__btn:active {
+  box-shadow: inset 0 0 13px 0 #fff;
+}
+
+.layout-form__input::before {
+  
 }
 
 .column-container,

@@ -14,7 +14,6 @@ export default function fetchImagesApi({value: subject, page}) {
     return response.json();
   })
   .then((response) => {
-    console.log('response', response)
     return response.results;
   })
   .catch((error) => {

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 
 import SearchFormContainer from './searchFormContainer';
 import SearchResultContainer from './searchResultContainer';
@@ -6,10 +6,10 @@ import SearchResultContainer from './searchResultContainer';
 class Home extends Component {
   render() {
     return(
-      <div>
+      <Fragment>
         <SearchFormContainer />
         <SearchResultContainer />
-      </div>
+      </Fragment>
     );
   }
 }

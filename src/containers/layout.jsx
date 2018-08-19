@@ -13,7 +13,7 @@ class Layout extends Component {
     } = this.props;
 
     return(
-      <div>
+      <div className="main-layout">
         <Tabs
           counter = {countValue}
           />

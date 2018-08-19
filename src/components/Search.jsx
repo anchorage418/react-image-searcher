@@ -21,16 +21,25 @@ class Search extends Component {
 
   render() {
     return(
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <label htmlFor="subject">Subject: </label>
+      <div className="search-form search-form__container">
+        <form 
+          onSubmit={this.handleSubmit}
+        >
+          {/* <label htmlFor="subject">Subject: </label> */}
           <input 
             type="text" 
             id="subject" 
             name="subject" 
+            placeholder="Enter keyword here..."
             onChange={this.handleChange}
+            className="search-form__input"
           />
-          <button type="submit">Search</button>
+          <button 
+            type="submit"
+            className="button search-form__btn"
+          >
+            Start searching
+          </button>
         </form>
       </div>
     );
