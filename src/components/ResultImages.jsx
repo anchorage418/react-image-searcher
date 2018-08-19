@@ -16,7 +16,9 @@ class ResultImages extends Component {
 
     return(
         images && !images.length ?
-        <div>Ready to search</div> :
+        <div className="result-images__placeholder-text">
+          Ready to search
+        </div> :
         <div className="column-container">
           <div className={`column-count-${columnCount}`}>
             {

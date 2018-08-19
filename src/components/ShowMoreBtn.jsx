@@ -17,7 +17,7 @@ class ShowMoreBtn extends Component {
     return(
       <div>
         <button 
-          className="showe-more-btn" 
+          className="button showe-more-btn" 
           onClick={this.handleClick}
         >
           Show more

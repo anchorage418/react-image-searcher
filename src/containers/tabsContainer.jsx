@@ -8,28 +8,30 @@ export default class Tabs extends Component {
     const { counter } = this.props;
 
     return(
-      <div className="tab-container">
-        <div className="tab">
-          <NavLink 
-            exact to="/" 
-            className="tab_link"
-            activeClassName="tab_link__active"
-          >
-            Search
-          </NavLink>
-        </div>
-        <div className="tab">
-          <div className="saved-img-tab">
+      <div className="tabs">
+        <div className="tabs__container">
+          <div className="tab">
+            <NavLink 
+              exact to="/" 
+              className="tab__link"
+              activeClassName="tab__link_active"
+            >
+              Search
+            </NavLink>
+          </div>
+          <div className="tab">
             <NavLink exact to="/save"
-              className="tab_link" 
-              activeClassName="tab_link__active"
+              className="tab__link" 
+              activeClassName="tab__link_active"
             >
               Saved images
-            </NavLink>
             {
               counter !== 0 && 
-              (<span>{counter}</span>)
+              (<span className="counter">
+                {counter}
+              </span>)
             }
+            </NavLink>
           </div>
         </div>
       </div>

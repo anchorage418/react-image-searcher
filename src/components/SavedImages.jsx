@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import Icon from '@mdi/react';
+import { 
+  mdiTrashCanOutline,
+} from '@mdi/js';
 
 const setToStorage = (item) => {
   const localStorage = window.localStorage;
@@ -73,10 +77,14 @@ class SavedImages extends Component {
                     className="saved-img"
                   />
                   <button 
-                    className="delete-btn" 
+                    className="button delete-btn" 
                     onClick={() => this.handleDelete(value.id)}
                     >
-                      x
+                    <Icon 
+                      path={ mdiTrashCanOutline }
+                      size={3}
+                      color="#fff"
+                    />
                   </button>
                 </div>
               )
