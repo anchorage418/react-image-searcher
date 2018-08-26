@@ -236,7 +236,7 @@ body {
 
 .tabs__container {
   max-width: 960px;
-  margin: 0 auto;
+  margin: 20px auto 0;
   display: flex;
 }
 .tab {
@@ -291,14 +291,43 @@ body {
 }
 
 .delete-btn {
-  display: none;
+  display: block;
   position: absolute;
   top: 2px;
   right: -10px;
   background-color: transparent;
 }
-
-/* .saved-img-container:hover .delete-btn {
+.saved-img-container::before {
+  content: '';
   display: block;
-} */
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-width: 0 100px 100px 0;
+  border-color: transparent #fff;
+  border-style: solid;
+}
 
+.loader__container > div {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(73, 73, 73, 0.561);
+}
+.loader__container svg {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.to-top-btn {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  padding: 0 4px;
+  border-radius: 8px;
+  background-color: #940a5a;
+}

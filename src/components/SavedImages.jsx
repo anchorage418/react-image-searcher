@@ -82,8 +82,8 @@ class SavedImages extends Component {
                     >
                     <Icon 
                       path={ mdiTrashCanOutline }
-                      size={3}
-                      color="#fff"
+                      size={2.3}
+                      color="#940a5a"
                     />
                   </button>
                 </div>

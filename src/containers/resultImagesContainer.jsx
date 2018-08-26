@@ -13,6 +13,7 @@ class ResultImagesLayout extends Component {
     const {
       images,
       query,
+      loading,
       columnCount,
       saveImageStart,
       showMoreImagesStart,
@@ -23,6 +24,7 @@ class ResultImagesLayout extends Component {
         <ResultImages 
           images={images}
           query={query}
+          loading={loading}
           columnCount={columnCount}
           saveImageStart={saveImageStart}
           showMoreImagesStart={showMoreImagesStart}
@@ -35,6 +37,7 @@ class ResultImagesLayout extends Component {
 ResultImagesLayout.propTypes = {
   images: PropTypes.array.isRequired,
   query: PropTypes.object.isRequired,
+  loading: PropTypes.bool.isRequired,
   columnCount: PropTypes.string.isRequired,
   saveImageStart: PropTypes.func.isRequired,
   showMoreImagesStart: PropTypes.func.isRequired,
@@ -50,10 +53,12 @@ const mapStateToProps = (state) => {
   const {
     result,
     query,
+    loading,
   } = resultImages;
   return {
     images: result,
     query,
+    loading,
   };
 };
 
