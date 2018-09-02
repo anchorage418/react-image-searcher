@@ -1,67 +1,34 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import Icon from '@mdi/react';
 import { 
   mdiTrashCanOutline,
 } from '@mdi/js';
+import { setToStorage, getFromStorage } from '../utils/index';
 
-const setToStorage = (item) => {
-  const localStorage = window.localStorage;
-  localStorage.setItem('savedImages', JSON.stringify(item));
-}
-const getFromStorage = () => {
-  const localStorage = window.localStorage;
-  return JSON.parse(localStorage.getItem('savedImages'))
-}
 class SavedImages extends Component {
 
   handleDelete = (id) => {
-    const { 
-      deleteImageStart, 
-      images, 
-    } = this.props;
-
-    if(images.length) {
-      const imagesInStorage = getFromStorage();
-      const filteredImg = [...imagesInStorage.filter((img) => {
-        return img.id !== id;
-      })];
-      setToStorage(filteredImg);
+    const { deleteImageStart } = this.props;
       deleteImageStart(id);
-    } 
   }
 
   render() {
     const {
       images, 
-      saveImageStart
     } = this.props;
     const getStorage = getFromStorage(); 
     let savedImg;
 
-    if(images.length && getStorage && getStorage.length > 0) {
-      let totalImg = [...images, ...getStorage];
-      totalImg.map((img) => {
-        saveImageStart(img);
-      });
-      setToStorage(images);
-      savedImg = getFromStorage();
-    } else if(images.length && getStorage && getStorage.length === 0) {
-      setToStorage(images);
-      savedImg = getFromStorage();
-    } else if(images.length === 0 && getStorage && getStorage.length > 0) {
-      getStorage.map((img) => {
-        saveImageStart(img);
-      });
-      savedImg = getFromStorage();
-    } else if(images.length && !getStorage) {
-      setToStorage(images);
-      savedImg = getFromStorage();
+    if (images.length) {
+      savedImg = images;
+    } else if (!images.length && getStorage && getStorage.length) {
+      savedImg = getStorage;
     } else {
       savedImg = [];
     }
 
     return (
-      <div>
+      <Fragment>
         <div>
           <div className="saved-img-general-container">
           {
@@ -92,7 +59,7 @@ class SavedImages extends Component {
           }
           </div>
         </div>
-      </div>
+      </Fragment>
     );
   }
 }

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -18,13 +18,13 @@ class SavedImagesContainer extends Component {
     } = this.props;
 
     return(
-      <div>
+      <Fragment>
         <SavedImages
          images={images}
          deleteImageStart={deleteImageStart}
          saveImageStart={saveImageStart}
         />
-      </div>
+      </Fragment>
     );
   }
 }
