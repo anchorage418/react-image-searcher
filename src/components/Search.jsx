@@ -25,7 +25,6 @@ class Search extends Component {
         <form 
           onSubmit={this.handleSubmit}
         >
-          {/* <label htmlFor="subject">Subject: </label> */}
           <input 
             type="text" 
             id="subject" 

@@ -3,7 +3,7 @@ import Icon from '@mdi/react';
 import { 
   mdiTrashCanOutline,
 } from '@mdi/js';
-import { setToStorage, getFromStorage } from '../utils/index';
+import { getFromStorage } from '../utils/index';
 
 class SavedImages extends Component {
 
